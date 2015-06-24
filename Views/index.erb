@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <h1>Student Directory</h1>
+    <h2>Submit your information here</h2>
+        <form method="post" action="/enroll">
+           <label for="namef">First Name </label>
+           <input type="text" id="first_name" name="name" />
+           <label for="namel">Last Name: </label>
+           <input type="text" id="last_name" name="surnames" />
+           <label for="birthday">Year of Birth: </label>
+           <input type="date" id="birthday_year" name="birthday" />
+           <label for="website">URL: </label>
+           <input type="text" id="website" name="website" />
+           <label for="number_of_dogs">Doggy Count: </label>
+           <input type="number" id="number_of_dogs" name="number_of_dogs" />
+           <label for="first_programming_experience">First time programming? (Enter true or false.) </label>
+           <input type="boolean" id="first_programming_experience" name="first_programming_experience" />
+
+
+           <input type="submit" value="Sign Up">
+        </form>
+
+    <% if @students.length > 0 %>
+      <h2>Students</h2>
+      <ul>
+        <% @students.each do |student| %>
+          <li><%= student.surnames %>, <%= student.name %></li>
+          <ul><li>Birthday: <%= student.birthday %></li>
+              <li>Website: <%= student.website %></li>
+              <li>Number of Pups: <%= student.number_of_dogs %></li>
+              <li>Programmed before? <%= student.first_programming_experience %></li>
+          </ul>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2> No Students yet </h2>
+    <% end %>
+
+   <!--  <% if @current_student %>
+      Hello, <%= @current_student %>!
+    <% else %> -->
+      
+    <% end %>
+  </body>
+</html>
+
